@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Kite+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Kite+One&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+}
+
+
+.header {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: hsla(346, 100%, 66%, 0.898);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* Dejar de centar verticalmente */
+    gap: 4rem;
+    height: 500px;
+    padding: 40px 10%;
+    border-bottom-left-radius: 90px;
+}
+
+/* capa del patrón (encima del color, debajo del contenido) */
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("./images/bg-pattern-intro-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: 2400px;
+    background-position: -190px 50%;
+    /* mueve patrón (x y) */
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+    /* para que no interfiera con los clics */
+    ;
+
+}
+
+/* asegura que el contenido quede por encima */
+.header>* {
+    position: relative;
+    z-index: 1;
+}
+
+
+.header .logo {
+    cursor: pointer;
+}
+
+.header .logo img {
+    width: 90px;
+}
+
+.header .menu {
+    list-style: none;
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+}
+
+.header .auth {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    white-space: nowrap;
+    /* evita que “Sign Up” se parta */
+}
+
+.header .nav-links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    /* espacio entre opciones */
+}
+
+.header .menu li {
+    position: relative;
+}
+
+.header .menu a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 4px;
+}
+
+.header .menu a:hover {
+    text-decoration: underline;
+}
+
+.header .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    text-decoration: none;
+    transition: background-color 0.3s, border-radius 0.3s;
+}
+
+.header .btn:hover {
+    /* cursor: pointer; */
+    background-color: rgba(255, 255, 255, 0.236);
+    border-radius: 25px;
+}
+
+.header nav ul {
+    list-style: none;
+}
+
+.header .chev {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    transition: transform .18s ease;
+}
+
+.header .has-submenu:hover .chev {
+    transform: translateY(1px) rotate(180deg);
+}
+
+.header .pattern-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 100px;
+    right: 150px;
+    z-index: 1;
+}
+
+.header .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: -8px;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: 10px;
+    min-width: 170px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+    z-index: 50;
+}
+
+/* Mostrar dropdown */
+.header .has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Dropdown: links (FORZADO) */
+.header .submenu a {
+    color: #333 !important;
+    font-weight: 400;
+    text-decoration: none;
+    display: block;
+    padding: 8px 6px;
+}
+
+.header .submenu a:hover {
+    font-weight: 700;
+}
+
+.header .has-submenu {
+    position: relative;
+}
+
+.header .submenu {
+    display: none;
+}
+
+.has-submenu.open .submenu {
+    display: block;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 4px;
+    font: inherit;
+}
+
+.header .hero {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;
+    padding: 0 1.5rem;
+    color: white;
+}
+
+.header .hero h1 {
+    font-family: "Overpass", sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    max-width: 900px;
+    /* controla el ancho */
+    margin: 0 0 1rem;
+
+}
+
+.header .hero p {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+    opacity: .85;
+    max-width: 520px;
+    margin: 0 0 2rem;
+}
