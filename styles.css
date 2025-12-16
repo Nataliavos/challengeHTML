@@ -11,18 +11,19 @@
 
 
 .header {
-    display: flex;
     position: relative;
     overflow: hidden;
-    background-color: hsla(346, 100%, 66%, 0.898);
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    /* Dejar de centar verticalmente */
-    gap: 4rem;
+    background-color: hsla(357, 95%, 60%, 0.913);
     height: 500px;
     padding: 40px 10%;
     border-bottom-left-radius: 90px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* logo | nav | auth */
+    grid-template-rows: auto 1fr; /* fila 1: header, fila 2: hero */
+    column-gap: 4rem;
+    row-gap: 2rem;
+    align-items: start;
 }
 
 /* capa del patrón (encima del color, debajo del contenido) */
@@ -35,7 +36,7 @@
     background-size: 2400px;
     background-position: -190px 50%;
     /* mueve patrón (x y) */
-    opacity: 0.35;
+    opacity: 0.50;
     z-index: 0;
     pointer-events: none;
     /* para que no interfiera con los clics */
@@ -52,6 +53,8 @@
 
 .header .logo {
     cursor: pointer;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .header .logo img {
@@ -60,27 +63,33 @@
 
 .header .menu {
     list-style: none;
-    margin-right: auto;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-
+    font-size: smaller;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .header .auth {
-    display: flex;
+    grid-column: 3;
+    grid-row: 1;
     align-items: center;
-    gap: 1.5rem;
     white-space: nowrap;
     /* evita que “Sign Up” se parta */
+    font-size: smaller;
+}
+
+.header .auth .btn-signup {
+    background-color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    color: hsla(346, 100%, 66%, 0.898);
+    font-weight: 500;
+    padding: 10px 22px; /* Tamaño del fondo */
 }
 
 .header .nav-links {
-    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alinea el contenido */
     gap: 2rem;
     /* espacio entre opciones */
 }
@@ -102,12 +111,12 @@
     text-decoration: underline;
 }
 
-.header .btn {
+.header .btn-login {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: white;
-    padding: 9px 20px;
+    padding: 10px 22px;
     border: none;
     border-radius: 5px;
     background-color: transparent;
@@ -115,7 +124,7 @@
     transition: background-color 0.3s, border-radius 0.3s;
 }
 
-.header .btn:hover {
+.header .btn-login:hover {
     /* cursor: pointer; */
     background-color: rgba(255, 255, 255, 0.236);
     border-radius: 25px;
@@ -202,15 +211,23 @@
     font: inherit;
 }
 
+.header .section-hero {
+    grid-column: 1 / -1; /* ocupa todas las columnas */
+    grid-row: 2; /* fila 2 */
+    height: calc(100% - 80px);
+    /* resta el padding superior e inferior (40px + 40px) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
 .header .hero {
-    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 0;
     padding: 0 1.5rem;
     color: white;
 }
@@ -218,7 +235,7 @@
 .header .hero h1 {
     font-family: "Overpass", sans-serif;
     font-weight: 600;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.0rem, 4.5vw, 3.5rem);
     line-height: 1.15;
     max-width: 900px;
     /* controla el ancho */
@@ -232,4 +249,27 @@
     opacity: .85;
     max-width: 520px;
     margin: 0 0 2rem;
+}
+
+.header .btn-learn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px 17px;
+    border: solid 1px white;
+    border-radius: 50px;
+    background-color: transparent;
+    text-decoration: none;
+    transition: background-color 0.3s, border-radius 0.3s;
+}
+
+.header .btn-start {
+    background-color: white;
+    border: solid 1px white;
+    border-radius: 50px;
+    text-decoration: none;
+    color: hsla(346, 100%, 66%, 0.898);
+    font-weight: 500;
+    padding: 10px 10px; /* Tamaño del fondo */
 }
