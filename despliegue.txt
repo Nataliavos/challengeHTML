@@ -1,0 +1,143 @@
+INSTRUCTIVO
+DESPLIEGUE DE PÁGINA WEB EN HOSTING ESTÁTICO (NETLIFY)
+
+PLATAFORMA: Netlify
+TIPO DE PROYECTO: Sitio web estático (HTML, CSS, JavaScript)
+
+REQUISITOS PREVIOS
+
+Antes de iniciar, asegúrese de contar con:
+
+Una página web estática funcional (por ejemplo: index.html, styles.css, scripts.js).
+
+Todos los archivos del sitio organizados en una sola carpeta.
+
+Un navegador web actualizado.
+
+Conexión a Internet.
+
+(Opcional) Una cuenta de GitHub si se desea desplegar desde un repositorio.
+
+ESTRUCTURA RECOMENDADA DEL PROYECTO
+
+La carpeta del proyecto debe tener una estructura similar a la siguiente:
+
+/mi_sitio_web
+
+index.html
+
+css/
+
+styles.css
+
+js/
+
+main.js
+
+assets/
+
+imágenes, íconos, fuentes, etc.
+
+IMPORTANTE:
+El archivo principal debe llamarse index.html y estar en la raíz del proyecto.
+
+DESPLIEGUE MEDIANTE CARGA DIRECTA (DRAG & DROP)
+
+Este es el método más sencillo.
+
+Abrir el navegador e ir a:
+https://www.netlify.com
+
+Hacer clic en “Sign up” y crear una cuenta (puede usar correo, GitHub o Google).
+
+Una vez dentro del panel principal (Dashboard), buscar la sección:
+“Add new site” → “Deploy manually”.
+
+Arrastrar la carpeta completa del proyecto al área indicada (Drag & Drop).
+
+Esperar a que finalice el proceso de carga y despliegue.
+
+Netlify asignará automáticamente una URL del tipo:
+https://nombre-aleatorio.netlify.app
+
+Abrir la URL y verificar que el sitio funcione correctamente.
+
+DESPLIEGUE DESDE GITHUB (OPCIONAL, RECOMENDADO)
+
+Este método permite actualizaciones automáticas.
+
+Subir el proyecto a un repositorio en GitHub.
+
+Iniciar sesión en Netlify.
+
+Seleccionar:
+“Add new site” → “Import an existing project”.
+
+Elegir GitHub como proveedor y autorizar el acceso.
+
+Seleccionar el repositorio del proyecto.
+
+Configurar:
+
+Build command: (dejar vacío si es HTML puro)
+
+Publish directory:
+
+“/” o el nombre de la carpeta donde está index.html
+
+Confirmar y desplegar.
+
+Cada vez que se suban cambios al repositorio, Netlify actualizará el sitio automáticamente.
+
+CAMBIAR EL NOMBRE DEL DOMINIO (SUBDOMINIO)
+
+En el panel del sitio, ir a:
+Site settings → Domain management.
+
+Hacer clic en “Change site name”.
+
+Elegir un nombre disponible.
+
+El sitio quedará accesible en:
+https://nombre-elegido.netlify.app
+
+USO DE DOMINIO PERSONALIZADO (OPCIONAL)
+
+Comprar un dominio (por ejemplo: midominio.com).
+
+En Netlify:
+Site settings → Domain management → Add custom domain.
+
+Seguir las instrucciones para configurar los DNS.
+
+Netlify puede activar HTTPS automáticamente (SSL).
+
+ERRORES COMUNES Y SOLUCIONES
+
+El sitio no carga:
+
+Verificar que exista index.html en la raíz.
+
+CSS o JS no funcionan:
+
+Revisar rutas relativas (./css/styles.css).
+
+Imágenes no aparecen:
+
+Confirmar mayúsculas/minúsculas en nombres de archivos.
+
+Página en blanco:
+
+Abrir consola del navegador (F12) y revisar errores.
+
+VENTAJAS DE NETLIFY
+
+Hosting gratuito para sitios estáticos.
+
+HTTPS automático.
+
+Alta velocidad (CDN).
+
+Integración con Git.
+
+Ideal para portafolios, landing pages y documentación técnica.

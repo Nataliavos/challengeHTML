@@ -2,274 +2,753 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Kite+One&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
 }
 
+img { max-width: 100%; height: auto; display: block; }
+body { margin: 0; overflow-x: hidden; }
+
+/* FIX: el texto “Open menu” no debe verse */
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
 
 .header {
-    position: relative;
-    overflow: hidden;
-    background-color: hsla(357, 95%, 60%, 0.913);
-    height: 500px;
-    padding: 40px 10%;
-    border-bottom-left-radius: 90px;
+  max-width: 1200px;
+  width: 100%;
+  justify-self: center;
+  position: relative;
+  overflow: hidden;
+  background-color: hsla(357, 95%, 60%, 0.913);
+  height: 500px;
+  padding: 40px 10%;
+  border-bottom-left-radius: 90px;
 
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav | auth */
-    grid-template-rows: auto 1fr; /* fila 1: header, fila 2: hero */
-    column-gap: 4rem;
-    row-gap: 2rem;
-    align-items: start;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | nav | auth */
+  grid-template-rows: auto 1fr;         /* fila 1: header, fila 2: hero */
+  column-gap: 4rem;
+  row-gap: 2rem;
+  align-items: start;
 }
 
 /* capa del patrón (encima del color, debajo del contenido) */
 .header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("./images/bg-pattern-intro-desktop.svg");
-    background-repeat: no-repeat;
-    background-size: 2400px;
-    background-position: -190px 50%;
-    /* mueve patrón (x y) */
-    opacity: 0.50;
-    z-index: 0;
-    pointer-events: none;
-    /* para que no interfiera con los clics */
-    ;
-
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./images/bg-pattern-intro-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 2400px;
+  background-position: -190px 50%;
+  opacity: 0.50;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* asegura que el contenido quede por encima */
-.header>* {
-    position: relative;
-    z-index: 1;
+.header > * {
+  position: relative;
+  z-index: 1;
 }
 
-
 .header .logo {
-    cursor: pointer;
-    grid-column: 1;
-    grid-row: 1;
+  cursor: pointer;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .header .logo img {
-    width: 90px;
+  width: 90px;
 }
 
 .header .menu {
-    list-style: none;
-    font-size: smaller;
-    grid-column: 2;
-    grid-row: 1;
+  list-style: none;
+  font-size: smaller;
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.header .auth {
-    grid-column: 3;
-    grid-row: 1;
-    align-items: center;
-    white-space: nowrap;
-    /* evita que “Sign Up” se parta */
-    font-size: smaller;
+.header .auth--desktop {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap;
+  font-size: smaller;
 }
 
-.header .auth .btn-signup {
-    background-color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    color: hsla(346, 100%, 66%, 0.898);
-    font-weight: 500;
-    padding: 10px 22px; /* Tamaño del fondo */
+.header .btn-signup {
+  background-color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  color: hsla(346, 100%, 66%, 0.898);
+  font-weight: 500;
+  padding: 10px 22px;
 }
 
 .header .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinea el contenido */
-    gap: 2rem;
-    /* espacio entre opciones */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
 }
 
 .header .menu li {
-    position: relative;
+  position: relative;
 }
 
 .header .menu a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 4px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
 }
 
 .header .menu a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .header .btn-login {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 10px 22px;
-    border: none;
-    border-radius: 5px;
-    background-color: transparent;
-    text-decoration: none;
-    transition: background-color 0.3s, border-radius 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .header .btn-login:hover {
-    /* cursor: pointer; */
-    background-color: rgba(255, 255, 255, 0.236);
-    border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.236);
+  border-radius: 25px;
 }
 
 .header nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 .header .chev {
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    transition: transform .18s ease;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  transition: transform .18s ease;
 }
 
 .header .has-submenu:hover .chev {
-    transform: translateY(1px) rotate(180deg);
+  transform: translateY(1px) rotate(180deg);
 }
 
 .header .pattern-circle {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    top: 100px;
-    right: 150px;
-    z-index: 1;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: 100px;
+  right: 150px;
+  z-index: 1;
 }
 
 .header .submenu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 12px);
-    left: -8px;
-    background: #fff;
-    padding: 16px 18px;
-    border-radius: 10px;
-    min-width: 170px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
-    z-index: 50;
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -8px;
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 10px;
+  min-width: 170px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+  z-index: 50;
 }
 
 /* Mostrar dropdown */
 .header .has-submenu:hover .submenu {
-    display: block;
+  display: block;
 }
 
 /* Dropdown: links (FORZADO) */
 .header .submenu a {
-    color: #333 !important;
-    font-weight: 400;
-    text-decoration: none;
-    display: block;
-    padding: 8px 6px;
+  color: #333 !important;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+  padding: 8px 6px;
 }
 
 .header .submenu a:hover {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .header .has-submenu {
-    position: relative;
+  position: relative;
 }
 
 .header .submenu {
-    display: none;
+  display: none;
 }
 
 .has-submenu.open .submenu {
-    display: block;
+  display: block;
 }
 
 .menu-toggle {
-    background: transparent;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 4px;
-    font: inherit;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
+  font: inherit;
 }
 
 .header .section-hero {
-    grid-column: 1 / -1; /* ocupa todas las columnas */
-    grid-row: 2; /* fila 2 */
-    height: calc(100% - 80px);
-    /* resta el padding superior e inferior (40px + 40px) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 }
+
 .header .hero {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.5rem;
-    color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  color: white;
 }
 
 .header .hero h1 {
-    font-family: "Overpass", sans-serif;
-    font-weight: 600;
-    font-size: clamp(2.0rem, 4.5vw, 3.5rem);
-    line-height: 1.15;
-    max-width: 900px;
-    /* controla el ancho */
-    margin: 0 0 1rem;
-
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.0rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+  max-width: 900px;
+  margin: 0 0 1rem;
 }
 
 .header .hero p {
-    font-family: "Ubuntu", sans-serif;
-    font-size: 1rem;
-    opacity: .85;
-    max-width: 520px;
-    margin: 0 0 2rem;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  opacity: .85;
+  max-width: 520px;
+  margin: 0 0 2rem;
 }
 
 .header .btn-learn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 10px 17px;
-    border: solid 1px white;
-    border-radius: 50px;
-    background-color: transparent;
-    text-decoration: none;
-    transition: background-color 0.3s, border-radius 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px 17px;
+  border: solid 1px white;
+  border-radius: 50px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .header .btn-start {
-    background-color: white;
-    border: solid 1px white;
-    border-radius: 50px;
+  background-color: white;
+  border: solid 1px white;
+  border-radius: 50px;
+  text-decoration: none;
+  color: hsla(346, 100%, 66%, 0.898);
+  font-weight: 500;
+  padding: 10px 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* Espaciado general de la sección */
+.future {
+  padding: 6rem 1rem;
+}
+
+/* Título principal centrado */
+.future-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 500;
+  color: hsl(237, 17%, 21%);
+}
+
+.future-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: "text1 image" "text2 image";
+  column-gap: 5rem;
+  row-gap: 3rem;
+  align-items: center;
+}
+
+.future-title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(208, 49%, 24%);
+}
+
+/* Bloques de texto */
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  margin-left: 4rem;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(208, 49%, 24%);
+}
+
+.feature p {
+  color: hsl(207, 13%, 34%);
+}
+
+.feature-1 {
+  grid-area: text1;
+  align-self: end;
+}
+
+.feature-2 {
+  grid-area: text2;
+  align-self: start;
+}
+
+.future-img {
+  grid-area: image;
+  justify-self: end;
+}
+
+.future-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 520px;
+  justify-self: end;
+}
+
+/* Sección 2 */
+.state-grid {
+  padding: 4rem 1rem;
+}
+
+.state-background {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 300px;
+  border-bottom-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background-color: hsl(237, 23%, 31%);
+  background-image: url("./images/bg-pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-size: 900px;
+  background-position: -200px 80px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.state-img {
+  grid-column: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.state-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(-70px);
+}
+
+.feature-state {
+  grid-column: 2;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 5rem 0 2rem;
+  min-width: 0;
+  transform: translateY(-140px);
+}
+
+.feature-state h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+}
+
+.feature-state p {
+  color: hsl(0, 0%, 100%);
+  line-height: 1.5;
+  max-width: 50ch;
+}
+
+/* SECCION 3 */
+.free {
+  padding: 10rem 1rem;
+}
+
+.free-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: "image text1" "image text2";
+  column-gap: 5rem;
+  row-gap: 3rem;
+  align-items: center;
+}
+
+/* FIX: tenías .feature duplicado y aquí lo estabas re-definiendo.
+   Para no romper lo que ya funciona, dejamos el layout general y solo ajustamos márgenes con un selector más específico. */
+.free-grid .feature{
+  margin-left: 0;
+  margin-right: 4rem;
+}
+
+.free-1 {
+  grid-area: text1;
+  align-self: end;
+}
+
+.free-2 {
+  grid-area: text2;
+  align-self: start;
+}
+
+.free-img {
+  width: 100%;
+  grid-area: image;
+  justify-self: end;
+}
+
+.free-img img {
+  height: auto;
+  display: block;
+  max-width: 520px;
+  justify-self: start;
+}
+
+/* FOOTER */
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 250px;
+  width: 100%;
+  background-color: hsl(237, 17%, 21%);
+  border-top-right-radius: 100px;
+  padding: 4rem 7rem;
+
+  display: grid;
+  grid-template-columns: 180px repeat(3, 1fr);
+  align-items: start;
+  gap: 3rem;
+}
+
+.footer .logo img {
+  cursor: pointer;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.footer-menu{
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu h4{
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-menu .submenu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.footer-menu .submenu a{
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+}
+
+.footer-menu .submenu a:hover{
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE (TABLET/MOBILE)
+   ========================= */
+
+/* Desktop: hamburger oculto */
+.hamburger { display: none; }
+
+/* Solo para móvil/tablet */
+@media (max-width: 768px) {
+
+  /* FIX: en móvil el header NO puede tener height fijo ni hero height calculado */
+  .header{
+    grid-template-columns: 1fr auto;  /* logo | hamburger */
+    grid-template-rows: auto auto;    /* topbar + hero (nav va en overlay) */
+    column-gap: 1rem;
+    row-gap: 1.25rem;
+
+    padding: 2.25rem 1.25rem 4rem;
+    height: auto;                    /* clave */
+    max-width: none;                 /* clave (evita “bloque centrado” con espacios raros) */
+  }
+
+  .header .logo{
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  /* En móvil NO queremos hover dropdown */
+  .header .has-submenu:hover .submenu { display: none; }
+
+  .hamburger{
+    display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .auth--desktop{ display: none; }
+
+  /* FIX: el menú debe ser overlay (no empujar el layout ni romper el hero) */
+  nav.menu{
+    display: none;
+    position: absolute;              /* clave */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 95px;                       /* ajustable */
+    width: min(92%, 360px);
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    z-index: 100;
+  }
+
+  nav.menu.is-open{ display: block; }
+
+  .header .nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    align-items: stretch;
+  }
+
+  .header .menu-toggle{
+    width: 100%;
+    justify-content: center;
+    color: hsl(208, 49%, 24%);
+    font-weight: 600;
+  }
+
+  /* FIX: el svg trae stroke #FFF en el HTML; en móvil lo volvemos oscuro */
+  .header .menu-toggle .chev path{ stroke: hsl(208, 49%, 24%); }
+
+  .header .submenu{
+    position: static;
+    display: none;
+    background: #f2f2f5;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: .5rem;
+    box-shadow: none;
+  }
+
+  .has-submenu.open .submenu{ display: block; }
+
+  .header .submenu a{
+    color: hsl(208, 49%, 24%) !important;
+    text-align: center;
+    padding: .45rem 0;
+    opacity: .85;
+  }
+
+  .auth--mobile{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0,0,0,.12);
+  }
+
+  .auth--mobile .btn-login{
+    color: hsl(208, 49%, 24%);
+    font-weight: 600;
+    text-align: center;
     text-decoration: none;
-    color: hsla(346, 100%, 66%, 0.898);
-    font-weight: 500;
-    padding: 10px 10px; /* Tamaño del fondo */
+  }
+
+  .auth--mobile .btn-signup{
+    background: hsl(356, 100%, 66%);
+    color: #fff;
+    border-radius: 999px;
+    padding: .85rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* FIX: hero sin height calculado */
+  .header .section-hero{
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 1rem;
+    height: auto;                    /* clave */
+  }
+
+  .header .hero{
+    height: auto;                    /* clave */
+    padding: 0 1rem;
+  }
+
+  .header .hero-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  .header .btn-start,
+  .header .btn-learn{
+    width: min(220px, 100%);
+    justify-content: center;
+  }
+
+  /* Future en 1 columna */
+  .future{ padding: 4rem 1rem; }
+
+  .future-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "text1" "text2";
+    row-gap: 2rem;
+  }
+
+  .future-img{ justify-self: center; }
+  .feature{ margin: 0; text-align: center; } /* en móvil, quitar márgenes que angostan */
+
+  /* FIX: State era el que “se cortaba”: quitar height fijo y quitar transforms fuertes */
+  .state-grid{ padding: 5rem 1rem 4rem; }
+
+  .state-background{
+    height: auto;                    /* clave */
+    grid-template-columns: 1fr;      /* 1 columna */
+    grid-template-rows: auto auto;
+    row-gap: 1.25rem;
+    padding: 3rem 1.5rem 2.5rem;
+    background-position: center -180px;
+    background-size: 700px;
+    text-align: center;
+  }
+
+  .state-img{ grid-column: 1; }
+
+  .state-img img{
+    transform: none;                 /* clave (evita recortes raros) */
+    width: min(320px, 100%);
+    margin: 0 auto;
+  }
+
+  .feature-state{
+    grid-column: 1;
+    padding: 0;
+    transform: none;                 /* clave */
+    align-items: center;
+  }
+
+  .feature-state p{ max-width: 36ch; }
+
+  /* Free en 1 columna */
+  .free{ padding: 5rem 1rem; }
+
+  .free-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "text1" "text2";
+    row-gap: 2rem;
+  }
+
+  .free-img{ justify-self: center; }
+  .free-img img{ max-width: 420px; }
+
+  /* Footer en columna */
+  .footer{
+    height: auto;
+    padding: 4rem 2rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-menu{
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .footer-menu .submenu{ align-items: center; }
 }
