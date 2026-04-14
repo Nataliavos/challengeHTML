@@ -18,7 +18,8 @@ Proyecto realizado como reto técnico para practicar **maquetación**, **diseño
 
 <img width="958" height="924" alt="screen1" src="https://github.com/user-attachments/assets/ccb1b9f2-4b7c-42d2-9668-6b84348cb55a" />
 <img width="959" height="877" alt="screen2" src="https://github.com/user-attachments/assets/0d1a2228-25d0-42ba-8bc6-302868b69463" />
-<img width="958" height="224" alt="screen3" src="https://github.com/user-attachments/assets/cb35915c-ed47-4ce1-b9b9-c6de1b0fb207" />
+<img width="956" height="313" alt="screen3" src="https://github.com/user-attachments/assets/6e78919f-0826-49ad-a5bf-62b7a435c0a3" />
+
 
 ---
 
