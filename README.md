@@ -1,97 +1,61 @@
-# Blogr Landing Page (Frontend Challenge)
+# 🎨 Reto de Frontend — Réplica de Mockup
 
-## Español 🇪🇸
-
-### Descripción
-Este proyecto es una landing page inspirada en el reto **Blogr** (Frontend Mentor). Incluye:
-- Header con navegación y hero principal
-- Secciones con layouts en **CSS Grid** (texto + ilustraciones)
-- Sección “State of the Art Infrastructure” con fondo, patrón y figura flotante
-- Footer con columnas de enlaces
-
-### Tecnologías
-- HTML5
-- CSS3 (Grid + Flexbox)
-- JavaScript (menú desplegable + hamburguesa en móvil)
-- Google Fonts (Ubuntu, Overpass)
-
-### Estructura del proyecto
-/ (root)
-├─ index.html
-├─ styles.css
-├─ README.md
-└─ images/
-├─ logo.svg
-├─ bg-pattern-intro-desktop.svg
-├─ bg-pattern-circles.svg
-├─ illustration-editor-desktop.svg
-├─ illustration-phones.svg
-└─ illustration-laptop-desktop.svg
-
-
-### Cómo ejecutar
-1. Descarga o clona el proyecto.
-2. Abre `index.html` en tu navegador.
-
-> Recomendado: usar VS Code con la extensión **Live Server** para recargar automáticamente.
-
-### Responsive / Comportamiento en móvil
-- El layout pasa a **una columna** (texto e imágenes apilados).
-- El menú principal se oculta y aparece un botón **hamburguesa**.
-- Dentro del menú móvil se muestran también los botones **Login** y **Sign Up**.
-
-### Notas
-- Las imágenes y patrones se cargan desde la carpeta `images/`.
-- Si algún SVG no aparece, revisa que el `src` coincida con el nombre del archivo.
-
-
+Proyecto realizado como reto técnico para practicar **maquetación**, **diseño responsivo** y buenas prácticas de frontend.
 
 ---
 
+## 🎥 Demo en video
 
+▶️ **Versión desktop**
+[frontend_challenge.webm](https://github.com/user-attachments/assets/d58d3179-9197-456a-8bfd-d8ef5ad7b60e)
 
-## English 🇺🇸
-
-### Description
-This project is a landing page inspired by the **Blogr** challenge (Frontend Mentor). It includes:
-- Header navigation and hero section
-- Multiple sections built with **CSS Grid** (text + illustrations)
-- “State of the Art Infrastructure” section with background pattern and floating phones illustration
-- Multi-column footer with links
-
-### Tech Stack
-- HTML5
-- CSS3 (Grid + Flexbox)
-- JavaScript (dropdown menu + mobile hamburger menu)
-- Google Fonts (Ubuntu, Overpass)
-
-### Project Structure
-/ (root)
-├─ index.html
-├─ styles.css
-├─ README.md
-└─ images/
-├─ logo.svg
-├─ bg-pattern-intro-desktop.svg
-├─ bg-pattern-circles.svg
-├─ illustration-editor-desktop.svg
-├─ illustration-phones.svg
-└─ illustration-laptop-desktop.svg
-
-
-### How to Run
-1. Download or clone the project.
-2. Open `index.html` in your browser.
-
-> Recommended: use VS Code with **Live Server** for auto-reload.
-
-### Responsive / Mobile Behavior
-- Layout switches to a **single column** (stacked content).
-- Main navigation is hidden and replaced by a **hamburger** button.
-- Mobile menu also includes **Login** and **Sign Up** buttons at the bottom.
-
-### Notes
-- Images and patterns load from the `images/` folder.
-- If an SVG is missing, verify the `src` path and the exact file name.
+📱 **Versión responsive**
+[responsive_frontend_challenge.webm](https://github.com/user-attachments/assets/78c5c522-22c9-40d2-a316-daa4dcbe1b2c)
 
 ---
+
+## 📸 Capturas
+
+<img width="798" height="925" alt="screen2" src="https://github.com/user-attachments/assets/e376452c-4c9c-41b2-8414-80c51e933dc2" />
+<img width="896" height="924" alt="screen1" src="https://github.com/user-attachments/assets/286a3fae-e69c-46aa-aa4a-6982f2a21c34" />
+
+---
+
+## 🛠️ Tecnologías
+
+* 🧱 **HTML5** — estructura semántica
+* 🎨 **CSS3** — Flexbox, Grid y diseño responsive
+* ⚡ **JavaScript** — interactividad básica
+
+---
+
+## 🚀 Cómo ejecutar el proyecto
+
+1. 📥 Clona este repositorio
+2. 🌐 Abre `index.html` en tu navegador
+
+💡 Alternativamente, puedes ver el video directamente:
+[video/frontend_challenge.webm](video/frontend_challenge.webm)
+
+---
+
+## 📌 Notas
+
+* 📁 El video se encuentra en la carpeta `video/`
+* 🌍 Compatible con GitHub Pages usando rutas relativas
+* 📱 Diseño adaptado a múltiples dispositivos (responsive)
+
+---
+
+## ✨ Posibles mejoras
+
+* 🖼️ Agregar miniatura (`.png`) para el video
+* 🎞️ Convertir el video a `.mp4` para mejor compatibilidad
+* ⚙️ Agregar animaciones o microinteracciones
+* ♿ Mejorar accesibilidad (ARIA, contraste, etc.)
+
+---
+
+## 🙌 Autor
+
+Hecho con dedicación como práctica de frontend 🚀
